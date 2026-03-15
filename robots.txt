@@ -1,2 +1,2 @@
-User-agent: googlebot        # all Google services
+User-agent: googlebot
 Disallow:
