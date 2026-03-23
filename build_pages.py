@@ -5,6 +5,7 @@ ALL_PAGES = [
     "projects/comprehensiveconfig",
     "projects/compiler-toolkit",
     "about",
+    "404.html",
 ]
 INDEX_FILE = "index.html"
 DIST = "dist/"
