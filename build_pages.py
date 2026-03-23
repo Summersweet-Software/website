@@ -2,7 +2,7 @@
 
 ALL_PAGES = [
     "projects",
-    "project/comprehensiveconfig",
+    "projects/comprehensiveconfig",
     "projects/compiler-toolkit",
     "about",
 ]
