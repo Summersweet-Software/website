@@ -20,3 +20,8 @@ for page in ALL_PAGES:
     print(f"[X] Created page for: {page}")
 
 print("Finished Creating Pages")
+print("Creating 404 page")
+
+os.makedirs(DIST + ".github/")
+shutil.copyfile(DIST + INDEX_FILE, DIST + ".github/404.html")
+print("Finished creating 404 page")
