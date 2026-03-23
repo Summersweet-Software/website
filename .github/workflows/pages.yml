@@ -53,11 +53,11 @@ jobs:
         with:
           path: dist/
 
-      - name: Uploading production-ready build files to GH-pages
-        id: deployment
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist/
+      # - name: Uploading production-ready build files to GH-pages
+      #   id: deployment
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     path: dist/
 
       - name: Deploy to GitHub Pages
         id: deployment
