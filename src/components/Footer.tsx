@@ -2,7 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 
 export function MainFooter() {
   return (
-    <footer className="bg-secondary text-white mt-5 p-4 position-fixed bottom-0">
+    <footer className="bg-secondary text-white mt-5 p-4 position-fixed bottom-0 min-vw-100">
       <Container>
         <Row>
           <Col md={4}>
