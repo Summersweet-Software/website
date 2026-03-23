@@ -1,6 +1,11 @@
 """Build all pages for the final distribution"""
 
-ALL_PAGES = ["projects", "projects/compiler-toolkit", "about"]
+ALL_PAGES = [
+    "projects",
+    "project/comprehensiveconfig",
+    "projects/compiler-toolkit",
+    "about",
+]
 INDEX_FILE = "index.html"
 DIST = "dist/"
 
