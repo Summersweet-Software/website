@@ -10,7 +10,7 @@ import "./styles/main.css";
 import { ComprehensiveConfigProjectPage } from "./Pages/ComprehensiveConfig.tsx";
 import { NotFound } from "./Pages/NotFound.tsx";
 
-createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <div className="text-white d-flex flex-column min-vh-100">
       {/* user header regardless of page*/}
