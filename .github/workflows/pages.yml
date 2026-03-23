@@ -9,13 +9,15 @@ on:
     branches:
       - main
 
+permissions:
+  contents: 'read'
+  id-token: 'write' # Add this line to the top level
+  pages: 'write'
+
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    permissions:
-      contents: 'read'
-      id-token: 'write' # Add this line to the top level
 
     steps:
       - name: Checkout code
@@ -42,10 +44,6 @@ jobs:
           path: dist/
 
   deploy:
-    permissions:
-      contents: 'read'
-      id-token: 'write' # Add this line to the top level
-      pages: 'write'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
