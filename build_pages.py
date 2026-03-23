@@ -24,4 +24,5 @@ print("Creating 404 page")
 
 os.makedirs(DIST + ".github/")
 shutil.copyfile(DIST + INDEX_FILE, DIST + ".github/404.html")
+shutil.copyfile(DIST + INDEX_FILE, DIST + "404.html")
 print("Finished creating 404 page")
