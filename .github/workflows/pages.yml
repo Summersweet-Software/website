@@ -37,8 +37,16 @@ jobs:
         with:
           # name: production-files
           path: ./build/
+      - name: Uploading production-ready build files to GH-pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # name: production-files
+          path: ./build/
 
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
@@ -51,9 +59,7 @@ jobs:
           # name: production-files
           path: ./build/
 
-      - name: Deploying to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 # End of copied Section
