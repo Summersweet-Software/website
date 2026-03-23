@@ -17,10 +17,10 @@ export function MainHeader() {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
               <NavDropdown title="Projects" id="basic-nav-dropdown">
-                <NavDropdown.Item href="projects/comprehensiveconfig">
+                <NavDropdown.Item href="/projects/comprehensiveconfig">
                   Comprehensive Config (Python)
                 </NavDropdown.Item>
-                <NavDropdown.Item href="projects/compiler-toolkit">
+                <NavDropdown.Item href="/projects/compiler-toolkit">
                   Compiler Toolkit (Not Yet Released)
                 </NavDropdown.Item>
                 {/* <NavDropdown.Divider /> */}
