@@ -11,7 +11,7 @@ import shutil
 for page in ALL_PAGES:
     print(f"[ ] Creating page for: {page}")
     os.makedirs(DIST + page)
-    shutil.copyfile(INDEX_FILE, DIST + f"{page}/index.html")
+    shutil.copyfile(DIST + INDEX_FILE, DIST + f"{page}/index.html")
     print(f"[X] Created page for: {page}")
 
 print("Finished Creating Pages")
