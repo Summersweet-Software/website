@@ -6,6 +6,12 @@ export default defineConfig({
   plugins: [react({ jsxRuntime: 'automatic' })],
   build: {
     cssMinify: 'lightningcss',
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        comprehensiveconfig: 'projects/comprehensiveconfig/index.html'
+      }
+  }
   },
 //   resolve: {
 //     alias: {
