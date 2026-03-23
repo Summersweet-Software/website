@@ -6,7 +6,12 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 export function MainHeader() {
   return (
     <>
-      <Navbar variant="dark" expand="lg" className=" bg-body-tertiary">
+      <Navbar
+        variant="dark"
+        expand="lg"
+        className=" bg-body-tertiary"
+        sticky="top"
+      >
         <Container>
           <Navbar.Brand href="#">
             <img width="100px" src="/summer-sweet-colorful.png" />
