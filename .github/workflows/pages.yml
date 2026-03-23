@@ -28,11 +28,18 @@ jobs:
         with:
           node-version: 24.x
 
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
       - name: Installing NPM packages
         run: npm ci
 
       - name: Building project
         run: npm run build
+
+      - name: Building pages
+        run: python build_pages.py
 
       # - name: Running tests
       #   run: npm run test
