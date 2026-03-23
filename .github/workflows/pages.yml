@@ -35,7 +35,7 @@ jobs:
       - name: Uploading production-ready build files
         uses: actions/upload-artifact@v4
         with:
-          name: production-files
+          # name: production-files
           path: ./build
 
   deploy:
@@ -48,7 +48,7 @@ jobs:
       - name: Downloading artifact
         uses: actions/download-artifact@v4
         with:
-          name: production-files
+          # name: production-files
           path: ./build
 
       - name: Deploying to gh-pages
