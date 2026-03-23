@@ -36,12 +36,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           # name: production-files
-          path: ./build/
+          path: ./dist/
       - name: Uploading production-ready build files to GH-pages
         uses: actions/upload-pages-artifact@v3
         with:
           # name: production-files
-          path: ./build/
+          path: ./dist/
 
   deploy:
     environment:
@@ -57,7 +57,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           # name: production-files
-          path: ./build/
+          path: ./dist/
 
       - name: Deploy to GitHub Pages
         id: deployment
