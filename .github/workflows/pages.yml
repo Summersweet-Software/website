@@ -37,11 +37,6 @@ jobs:
         with:
           # name: production-files
           path: dist/
-      - name: Uploading production-ready build files to GH-pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # name: production-files
-          path: dist/
 
   deploy:
     environment:
@@ -56,7 +51,12 @@ jobs:
       - name: Downloading artifact
         uses: actions/download-artifact@v4
         with:
-          # name: production-files
+          path: dist/
+
+      - name: Uploading production-ready build files to GH-pages
+        id: deployment
+        uses: actions/upload-pages-artifact@v3
+        with:
           path: dist/
 
       - name: Deploy to GitHub Pages
