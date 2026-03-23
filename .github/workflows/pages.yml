@@ -1,10 +1,6 @@
 # Coppied From: https://dev.to/devangtomar/using-github-pages-and-github-actions-to-deploy-a-react-app-1ge3
 name: Build & deploy
 
-permissions:
-  contents: 'read'
-  id-token: 'write' # Add this line to the top level
-
 on:
   push:
     branches:
@@ -17,6 +13,9 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write' # Add this line to the top level
 
     steps:
       - name: Checkout code
@@ -43,6 +42,9 @@ jobs:
           path: dist/
 
   deploy:
+    permissions:
+      contents: 'read'
+      id-token: 'write' # Add this line to the top level
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
