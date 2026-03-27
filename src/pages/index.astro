@@ -1,0 +1,41 @@
+---
+import Base from "../layouts/Base.astro";
+
+const projects = [
+  {
+    name: "Comprehensive Config",
+    description: "Define configuration schemas as Python classes. Validate, read, and write config files across interchangeable formats.",
+    href: "/projects/comprehensive-config",
+  },
+  {
+    name: "Compiler Toolkit",
+    description: "A toolkit for building compilers and language tooling. Lexers, parsers, and code generation.",
+    href: "#",
+  },
+];
+---
+
+<Base>
+  <section class="max-w-7xl mx-auto px-6 lg:px-10 pt-24 lg:pt-28 pb-16">
+    <p class="text-xs font-medium tracking-widest uppercase text-brand mb-5 ml-1">Worker-Owned Software Cooperative</p>
+    <div class="lg:grid lg:grid-cols-12 lg:gap-10 items-end">
+      <div class="relative z-10 lg:col-span-8">
+        <h1 class="font-[family-name:var(--font-display)] text-4xl sm:text-6xl lg:text-7xl font-semibold text-darkest leading-[1.05] tracking-tight">
+          Collaborative code, collectively owned.
+        </h1>
+        <p class="text-brand-dark/80 text-sm leading-relaxed mt-5 lg:text-right lg:max-w-2xl ml-1">
+          An engineering cooperative in Maryland dedicated to open-source craft and collective equity.
+        </p>
+      </div>
+      <div class="lg:col-span-4 mt-8 lg:mt-0 flex lg:justify-end overflow-visible">
+        <div class="relative overflow-visible">
+          <div class="hatching" aria-hidden="true"></div>
+          <div class="flex gap-3 relative z-10">
+            <a href="https://github.com/Summersweet-Software/" class="inline-block px-5 py-2.5 border border-brand-dark bg-white text-brand-dark text-sm font-medium tracking-wider hover:bg-darkest hover:text-sand transition-colors">GitHub</a>
+            <a href="/about" class="inline-block px-5 py-2.5 text-brand-dark text-sm font-medium tracking-wider hover:text-darkest transition-colors">About Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,73 @@
+---
+const year = new Date().getFullYear();
+
+const columns = [
+  {
+    title: "Projects",
+    links: [
+      { label: "Comprehensive Config", href: "/projects/comprehensive-config" },
+      { label: "Compiler Toolkit", href: "#" },
+    ],
+  },
+  {
+    title: "Organization",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "GitHub", href: "https://github.com/Summersweet-Software/" },
+      { label: "Discord", href: "https://discord.gg/CZ3Hfpzdep" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      {
+        label: "ComprehensiveConfig Docs",
+        href: "https://github.com/Summersweet-Software/ComprehensiveConfig",
+      },
+    ],
+  },
+];
+---
+
+<footer class="mt-auto bg-darkest text-sand">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14">
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+      {
+        columns.map((col) => (
+          <div>
+            <p class="text-sand text-xs font-medium tracking-wider uppercase mb-4">
+              {col.title}
+            </p>
+            <ul class="space-y-2.5 text-sm">
+              {col.links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+    <div
+      class="mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-brand-light/40"
+    >
+      <p>&copy; {year} Summersweet Software</p>
+      <div class="flex gap-5">
+        <a
+          href="https://github.com/Summersweet-Software/"
+          class="hover:text-white transition-colors">GitHub</a
+        >
+        <a
+          href="https://discord.gg/CZ3Hfpzdep"
+          class="hover:text-white transition-colors">Discord</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>

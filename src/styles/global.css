@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #588157;
+  --color-brand-light: #A3B18A;
+  --color-brand-dark: #3A5A40;
+  --color-darkest: #344E41;
+  --color-sand: #DAD7CD;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+}
+
+html { font-family: var(--font-sans); }
+
+pre.astro-code {
+  background: #f8f7f5 !important;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}
+
+@keyframes aurora {
+  0%, 100% { opacity: 0.55; transform: translateY(0) scale(1); }
+  50% { opacity: 0.9; transform: translateY(-4%) scale(1.02); }
+}
+
+.aurora {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 500px;
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(70px);
+  animation: aurora 8s ease-in-out infinite;
+  background:
+    radial-gradient(ellipse 600px 300px at 15% 40%, rgba(88, 129, 87, 0.25), transparent),
+    radial-gradient(ellipse 500px 350px at 50% 20%, rgba(163, 177, 138, 0.20), transparent),
+    radial-gradient(ellipse 400px 250px at 35% 60%, rgba(58, 90, 64, 0.18), transparent);
+}
+
+.prose h2 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: #344E41; margin: 2.5rem 0 1rem; }
+.prose h3 { font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; color: #344E41; margin: 2rem 0 0.75rem; }
+.prose p { color: #6b7264; line-height: 1.75; margin-bottom: 1rem; }
+.prose ul { list-style: disc; padding-left: 1.25rem; color: #6b7264; margin-bottom: 1rem; }
+.prose li { margin-bottom: 0.375rem; }
+.prose a { color: var(--color-brand); }
+.prose a:hover { text-decoration: underline; }
+.prose pre { margin-bottom: 1.5rem; }
+.prose code:not(pre code) { background: #f0eeea; padding: 0.125rem 0.375rem; font-size: 0.8125rem; }
+
+.hatching { display: none; }
+
+@media (min-width: 64rem) {
+  .hatching {
+    display: block;
+    position: absolute;
+    top: -10rem;
+    right: -3rem;
+    bottom: -4rem;
+    width: 44rem;
+    z-index: 0;
+    opacity: 0.4;
+    background-image: repeating-linear-gradient(
+      -45deg, transparent, transparent 7px,
+      var(--color-brand-light) 7px, var(--color-brand-light) 8px
+    );
+    mask-image:
+      linear-gradient(to right, transparent, black 30%, black 60%, transparent),
+      linear-gradient(to bottom, transparent, black 30%, black 55%, transparent 80%);
+    mask-composite: intersect;
+    -webkit-mask-image:
+      linear-gradient(to right, transparent, black 30%, black 60%, transparent),
+      linear-gradient(to bottom, transparent, black 30%, black 55%, transparent 80%);
+    -webkit-mask-composite: source-in;
+  }
+}

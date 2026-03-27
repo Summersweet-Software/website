@@ -1,0 +1,100 @@
+---
+import Base from "./Base.astro";
+
+const { frontmatter, headings } = Astro.props;
+const toc = headings
+  .filter((h: { depth: number }) => h.depth === 2 || h.depth === 3)
+  .map((h: { depth: number; slug: string; text: string }) => ({
+    depth: h.depth,
+    slug: h.slug,
+    text: h.text,
+  }));
+---
+
+<Base title={`${frontmatter.title} — Summersweet Software`}>
+  <div
+    class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:grid lg:grid-cols-[1fr_220px] lg:gap-16"
+  >
+    <article>
+      <header class="mb-24">
+        <p
+          class="text-xs font-medium tracking-widest uppercase text-brand-light mb-3"
+        >
+          {frontmatter.tech}
+        </p>
+        <h1
+          class="font-[family-name:var(--font-display)] text-3xl font-semibold text-darkest mb-4"
+        >
+          {frontmatter.title}
+        </h1>
+        <p class="text-brand-dark/70 leading-relaxed max-w-2xl">
+          {frontmatter.description}
+        </p>
+        {
+          frontmatter.github && (
+            <a
+              href={frontmatter.github}
+              class="inline-block mt-5 px-5 py-2.5 bg-brand-dark text-whiteU text-sm font-medium tracking-wider hover:bg-darkest transition-colors"
+            >
+              View on GitHub
+            </a>
+          )
+        }
+      </header>
+      <div class="prose"><slot /></div>
+    </article>
+
+    {
+      toc.length > 0 && (
+        <aside class="hidden lg:block">
+          <nav class="sticky top-8">
+            <p class="text-[10px] font-medium tracking-widest uppercase text-brand-light/50 mb-4">
+              On this page
+            </p>
+            <ul class="space-y-2 text-sm" id="toc-list">
+              {toc.map(
+                (item: { depth: number; slug: string; text: string }) => (
+                  <li class={item.depth === 3 ? "pl-3" : ""}>
+                    <a
+                      href={`#${item.slug}`}
+                      data-slug={item.slug}
+                      class="toc-link block text-brand-light hover:text-darkest transition-colors leading-snug"
+                    >
+                      {item.text}
+                    </a>
+                  </li>
+                ),
+              )}
+            </ul>
+          </nav>
+        </aside>
+      )
+    }
+  </div>
+
+  <script>
+    const links = document.querySelectorAll<HTMLAnchorElement>(".toc-link");
+    if (links.length) {
+      const slugs = Array.from(links).map((l) => l.dataset.slug!);
+      const els = slugs
+        .map((s) => document.getElementById(s))
+        .filter(Boolean) as HTMLElement[];
+
+      function update() {
+        let active = slugs[0];
+        for (let i = 0; i < els.length; i++) {
+          if (els[i].getBoundingClientRect().top <= 80) active = slugs[i];
+        }
+        links.forEach((l) => {
+          const on = l.dataset.slug === active;
+          l.classList.toggle("text-brand-light", !on);
+          l.classList.toggle("text-brand", on);
+          l.classList.toggle("font-medium", on);
+        });
+      }
+
+      window.addEventListener("scroll", update, { passive: true });
+      update();
+    }
+  </script>
+</Base>

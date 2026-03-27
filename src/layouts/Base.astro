@@ -1,0 +1,48 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Summersweet Software",
+  description = "A worker-owned software cooperative based in Maryland, USA",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://www.summersweet.software" />
+    <meta
+      property="og:image"
+      content="https://www.summersweet.software/summer-sweet-colorful.png"
+    />
+    <meta name="theme-color" content="#588157" />
+    <link rel="icon" type="image/png" href="/summer-sweet-colorful.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white text-darkest min-h-screen flex flex-col">
+    <Header />
+    <main class="relative flex-1">
+      <div class="aurora" aria-hidden="true"></div>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

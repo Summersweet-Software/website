@@ -1,68 +1,36 @@
-# Coppied From: https://dev.to/devangtomar/using-github-pages-and-github-actions-to-deploy-a-react-app-1ge3
-name: Build & deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    branches: [main]
 
 permissions:
-  contents: 'read'
-  id-token: 'write' # Add this line to the top level
-  pages: 'write'
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Installing Node.js
-        uses: actions/setup-node@v6
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 24.x
-
-      - uses: actions/setup-python@v6
-        with:
-          python-version: '3.13'
-
-      - name: Installing NPM packages
-        run: npm ci
-
-      - name: Building project
-        run: npm run build
-
-      - name: Building pages
-        run: python build_pages.py
-
-      # - name: Running tests
-      #   run: npm run test
-
-      - name: Uploading production-ready build files
-        uses: actions/upload-pages-artifact@v3
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/
 
   deploy:
+    needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-
     steps:
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - uses: actions/configure-pages@v5
+      - id: deployment
         uses: actions/deploy-pages@v4
-# End of copied Section

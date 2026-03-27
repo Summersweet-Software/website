@@ -1,0 +1,35 @@
+---
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/projects/comprehensive-config", label: "Projects" },
+];
+---
+
+<header>
+  <nav
+    class="max-w-7xl mx-auto px-6 lg:px-10 py-8 flex items-center justify-between"
+  >
+    <a href="/" class="flex items-center gap-3">
+      <img src="/summer-sweet-colorful.png" alt="" class="h-8 w-8" />
+      <span
+        class="font-[family-name:var(--font-display)] text-sm font-semibold tracking-tight text-darkest"
+        >Summersweet</span
+      >
+    </a>
+    <ul class="flex gap-8 text-xs font-medium tracking-wider">
+      {
+        links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              class="text-brand-light hover:text-brand-dark transition-colors"
+            >
+              {l.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
