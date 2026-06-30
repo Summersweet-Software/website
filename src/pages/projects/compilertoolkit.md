@@ -11,7 +11,7 @@ github: https://github.com/Summersweet-Software/compilertoolkit
 CompilerToolkit is a library designed to help you create well-organized, large compilers in python. It helps with ensuring proper annotations and typing support throughout your entire codebase.
 It also provides many utilities for pretty error printing and tree handling.
 
-# Release/Version Information
+## Release/Version Information
 
 Currently this project is unfinished and does not have a `v1.0` on pypi or github.
 
@@ -33,7 +33,7 @@ Currently this project is unfinished and does not have a `v1.0` on pypi or githu
 - [x] Parser token class builtin
 - [x] `NTree` utility type to help make things like module/package trees
 
-# Example usage of `NTree`'s
+## Example usage of `NTree`'s
 
 ```python
 class ModuleName:
@@ -183,7 +183,7 @@ except PrivateImportExc:
 
 ```
 
-# Test usage of AST utilities
+## Test usage of AST utilities
 
 ```python
 from typing import Any
