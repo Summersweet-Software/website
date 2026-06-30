@@ -10,12 +10,12 @@ github: https://github.com/Summersweet-Software/rply-stubs
 
 A stubs library for [RPLY](https://pypi.org/project/rply/).
 
-# Correctness
+## Correctness
 
 This is an independent static analysis of the types being used. The original rply codebase is quite messy. 
 This is all to say that the type annotations provided are not always correct but provide a firm guideline in an otherwise untyped library.
 
-# Completeness
+## Completeness
 
 | symbol | meaning       |
 | ------ | ------------- |
@@ -33,8 +33,3 @@ This is all to say that the type annotations provided are not always correct but
 | parsergenerator |   ⚪   |
 | token           |   ✅   |
 | utils           |   ✅   |
-
-
-email = "example@email.com"
-password = "MyPassword"
-```
