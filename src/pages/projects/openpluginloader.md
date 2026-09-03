@@ -65,7 +65,6 @@ src="src/"
 Your `plugin.toml` contains plugin specific information and WILL be packaged in your final plugin.
 
 ```toml
-# Can and will be changed by custom plugin loaders
 name = "ExamplePlugin"
 author = "Abby"
 entry = "main" # Entry file
@@ -79,6 +78,7 @@ max_api_version = "0.1.10"
 # - table: {major=1, minor=0, patch=0, tag="Beta"}
 # - list/tuple: [1, 0, 0, "beta"], [1, 0], [1, 0, 0]
 
+# Additional required metadata may be required by custom plugin loaders.
 
 # (Optional from here on)
 dependencies = [
@@ -186,12 +186,12 @@ from openpluginloader.utility import set_default_module_cache
 
 from pathlib import Path
 
-import ourproject # import our api. 
+import ourproject # import our plugin api. 
 
 # makes our current imports available to plugins. VERY IMPORTANT
 set_default_module_cache()
 # You can also manually set `utility.DEFAULT_MODS` if you want more careful control
-# ONLY MODIFY DEFAULT_MODS, DO NOT INSTANTIATE A NEW DICT! THIS WILL BREAK THINGS!
+# Do not every set `utility.DEFAULT_MODS` to a new instance. Only modify in-place
 
 API_VERSION = ApiVersion(1, 0, 0, "release")
 
@@ -210,12 +210,12 @@ from openpluginloader.utility import set_default_module_cache
 
 from pathlib import Path
 
-import ourproject # import our api. 
+import ourproject # import our plugin api. 
 
 # makes our current imports available to plugins. VERY IMPORTANT
 set_default_module_cache()
 # You can also manually set `utility.DEFAULT_MODS` if you want more careful control
-# ONLY MODIFY DEFAULT_MODS, DO NOT INSTANTIATE A NEW DICT! THIS WILL BREAK THINGS!
+# Do not every set `utility.DEFAULT_MODS` to a new instance. Only modify in-place
 
 API_VERSION = ApiVersion(1, 0, 0, None)
 
