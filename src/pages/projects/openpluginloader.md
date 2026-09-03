@@ -17,7 +17,7 @@ An MIT LICENSE library made to make packaging and loading of plugins easy for pr
 - Plugin import hook to allow plugins to depend on each other or be imported by the main application itself..
 - Customization of plugin loading- choose to load them via dynamic import (default) or use a custom loading strategy (for example, a custom, sandboxed environment).
 - Plugin api versioning. Ensure plugins follow versioning standards
-- Plugin Manager using the strategy pattern. Change any individual component to suite your needs.
+- Plugin Manager using the strategy pattern. Change any individual component to suit your needs.
 
 ## Features Not Provided
 - Sandboxed loading strategy. Sandbox security is not our expertise. I would rather we provide only what we can reasonable ensure the quality of.
