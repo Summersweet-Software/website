@@ -1,5 +1,11 @@
 ---
 import Base from "../layouts/Base.astro";
+
+const teamMembers = [
+  {name: "ArachnidAbby", link: "/members/ArachnidAbby", imgUrl: "https://avatars.githubusercontent.com/u/38941820?v=4"},
+  {name: "Ducky Pew", link: "/members/Ducky", imgUrl: ""},
+  {name: "Noxabellus", link: "/members/Noxie", imgUrl: ""}
+];
 ---
 
 <Base title="About — Summersweet Software">
@@ -26,6 +32,22 @@ import Base from "../layouts/Base.astro";
         believe that shared ownership leads to better software, stronger teams,
         and more sustainable work.
       </p>
+
+      <h2
+        class="font-[family-name:var(--font-display)] text-xl font-semibold text-darkest mt-10"
+      >
+        Our Team
+      </h2>
+      <div class="flex flex-row gap-5 mb-2">
+        {teamMembers.map((member) => (
+          <a href={member.link} class="w-32 h-32 shadow-s">
+            <div class="flex justify-center mb-1">
+              <img src={member.imgUrl} alt="Member Profile Photo" class="w-24 h-24 text-center rounded-md"/>
+            </div>
+            <p class="border-b-1 border-t-1 rounded-md text-center">{member.name}</p>
+          </a>
+        ))}
+      </div>
 
       <h2
         class="font-[family-name:var(--font-display)] text-xl font-semibold text-darkest mt-10"
