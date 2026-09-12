@@ -1,0 +1,48 @@
+---
+import Base from "./Base.astro";
+
+interface Frontmatter {
+    name: string; // Name or username
+    title?: string; // position/title within the coop
+    altName?: string; // alternative name (username for example)
+    pronouns: string;
+    profileIconUrl: string;
+}
+
+const { frontmatter, headings } = Astro.props;
+
+---
+
+<Base title={`${frontmatter.title} — Summersweet Software`}>
+    <div
+    class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:grid lg:grid-cols-[1fr_220px] lg:gap-16"
+  >
+    <article>
+      <header class="mb-24">
+        <div class="grid grid-flow-col grid-rows-1 place-self-center gap-1">
+            <div class="flex col-1 col-span-1 mr-0 justify-center">
+                <img src={frontmatter.profileIconUrl} alt="Profile Picture" class="h-24 w-24 rounded-md border-1 overflow-hidden text-center">
+            </div>
+            <div class="col-2 col-span-10">
+                <div class="mb-3">
+                    <h1
+                    class="font-[family-name:var(--font-display)] text-3xl font-semibold text-darkest whitespace-nowrap"
+                    >
+                    {frontmatter.name}
+                    </h1>
+                    <p class="text-s font-medium tracking-widest text-brand-light">
+                    {frontmatter.altName ?? frontmatter.name}, ({frontmatter.pronouns})
+                    </p>
+                </div>
+                <p
+                class="text-brand-dark/70 leading-relaxed max-w-2xl"
+                >
+                {frontmatter.title || "Member"}
+                </p>
+            </div>
+        </div>
+        
+      </header>
+      <div class="prose"><slot /></div>
+  </div>
+</Base>

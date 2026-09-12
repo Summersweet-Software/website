@@ -1,5 +1,39 @@
 ---
 import Base from "../layouts/Base.astro";
+
+interface TeamMember {
+  name: string;
+  link: string;
+  imgUrl: string;
+  altText?: string;
+}
+
+interface WorkingGroup {
+  name: string;
+  description: string;
+  link?: string;
+}
+
+const teamMembers: TeamMember[] = [
+  {
+    name: "Abigail Austin",
+    link: "/members/ArachnidAbby",
+    imgUrl: "https://avatars.githubusercontent.com/u/38941820?v=4",
+  },
+  { name: "Ducky Pew", link: "/members/Ducky", imgUrl: "" },
+];
+
+const workingGroups: WorkingGroup[] = [
+  // {
+  //   name: "Recruitment Working Group",
+  //   description: "Dedicated to managing hiring decisions for the organization.",
+  // },
+  // {
+  //   name: "Public Records Committee",
+  //   description:
+  //     "Dedicated to managing and ensuring the access to public records.",
+  // },
+];
 ---
 
 <Base title="About — Summersweet Software">
@@ -26,6 +60,70 @@ import Base from "../layouts/Base.astro";
         believe that shared ownership leads to better software, stronger teams,
         and more sustainable work.
       </p>
+
+      <h2
+        class="font-[family-name:var(--font-display)] text-xl font-semibold text-darkest mt-10"
+      >
+        Our Team
+      </h2>
+      <div class="flex flex-row gap-5 mb-2">
+        {
+          teamMembers.map((member) => (
+            <a
+              href={member.link}
+              class="rounded-b-md w-32 h-32 shadow-xs hover:shadow-md shadow-brand hover:border-1 rounded-t-sm"
+            >
+              <div class="flex justify-center mb-1">
+                <img
+                  src={member.imgUrl}
+                  alt={member.altText ?? "Member Profile Photo"}
+                  class="w-24 h-24 text-center rounded-md"
+                />
+              </div>
+              <p class="border-b-1 border-t-1 rounded-md text-center mb-0">
+                {member.name}
+              </p>
+            </a>
+          ))
+        }
+      </div>
+
+      <h2
+        class="font-[family-name:var(--font-display)] text-xl font-semibold text-darkest mt-10"
+      >
+        Working Groups
+      </h2>
+      <p>
+        As per our <a title="(link not yet available)">bylaws</a>, we are
+        required to maintain a public list of active working groups.
+      </p>
+
+      <div class="flex flex-col gap-4">
+        {
+          workingGroups.length == 0 ? (
+            <p class="italic ml-2">
+              Nothing here yet. No working groups have been created yet.
+            </p>
+          ) : (
+            workingGroups.map((group) => (
+              <a
+                href={group.link}
+                class="hover:shadow-xs shadow-brand border-l-2 flex-shrink max-w-212 min-w-128 w-2/3 ml-2"
+              >
+                <h3
+                  class="font-[family-name:var(--font-display)] font-semibold text-darkest ml-4 mr-4 mt-2 mb-1 border-b-1"
+                  title={group.name}
+                >
+                  {group.name}
+                </h3>
+                <p class="ml-4 mr-4 mb-1 truncate" title={group.description}>
+                  {group.description}
+                </p>
+              </a>
+            ))
+          )
+        }
+      </div>
 
       <h2
         class="font-[family-name:var(--font-display)] text-xl font-semibold text-darkest mt-10"
