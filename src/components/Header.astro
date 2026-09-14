@@ -38,20 +38,24 @@ const projects = [
 
       <li>
         <div
-          class="relative text-brand-light transition-colors sm:mr-20 hover:text-white hover:bg-(--color-brand)"
+          class="relative text-brand-light transition-colors mr-auto sm:mr-20 hover:text-white hover:bg-(--color-brand)"
         >
           <span
             class="cursor-pointer"
             onclick="javascript:projectsClickToggle()">Projects</span
           >
           <div
-            class="absolute block hidden gap-2 z-100 mt-1"
+            class="absolute block hidden z-100 mt-1 -left-25 sm:left-0"
             id="ProjectsDropdownContent"
           >
             {
               projects.map((project) => (
                 <a href={project.href}>
-                  <div class="text-brand-light hover:text-white hover:bg-(--color-brand) ml-1 mt-1 mb-1 w-50">
+                  <div
+                    class="text-brand-light hover:text-white hover:bg-(--color-brand)
+                           bg-white sm:bg-none
+                           pt-5 pb-5 sm:ml-1 sm:pt-1 sm:pb-1 w-50"
+                  >
                     {project.label}
                   </div>
                 </a>
