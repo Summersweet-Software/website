@@ -2,7 +2,12 @@
 const links = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/projects/comprehensiveconfig", label: "Projects" },
+];
+
+const projects = [
+  { href: "/projects/comprehensiveconfig", label: "ComprehensiveConfig" },
+  { href: "/projects/compilertoolkit", label: "CompilerToolkit" },
+  { href: "/projects/openpluginloader", label: "OpenPluginLoader" },
 ];
 ---
 
@@ -30,6 +35,52 @@ const links = [
           </li>
         ))
       }
+
+      <li>
+        <div
+          class="relative text-brand-light transition-colors mr-auto sm:mr-20 hover:text-white hover:bg-(--color-brand)"
+        >
+          <span
+            class="cursor-pointer"
+            onclick="javascript:projectsClickToggle()">Projects</span
+          >
+          <div
+            class="absolute block hidden z-100 mt-1 -left-25 sm:left-0"
+            id="ProjectsDropdownContent"
+          >
+            {
+              projects.map((project) => (
+                <a href={project.href}>
+                  <div
+                    class="text-brand-light hover:text-white hover:bg-(--color-brand)
+                           bg-white sm:bg-none
+                           pt-5 pb-5 sm:ml-1 sm:pt-1 sm:pb-1 w-50"
+                  >
+                    {project.label}
+                  </div>
+                </a>
+              ))
+            }
+            <div hidden class="min-h-5">Spacer</div>
+          </div>
+        </div>
+      </li>
     </ul>
   </nav>
 </header>
+
+<script is:inline>
+  function projectsClickToggle() {
+    console.log("Text");
+    const element = document.getElementById("ProjectsDropdownContent");
+    if (element.classList.contains("hidden"))
+      element.classList.remove("hidden");
+    else element.classList.add("hidden");
+  }
+
+  function projectsSetHidden() {
+    console.log("Text");
+    const element = document.getElementById("ProjectsDropdownContent");
+    if (!element.classList.contains("hidden")) element.classList.add("hidden");
+  }
+</script>
