@@ -25,14 +25,21 @@ pre.astro-code {
   50% { opacity: 0.9; transform: translateY(-4%) scale(1.02); }
 }
 
-.aurora {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 500px;
-  z-index: -1;
+.aurora-container {
+  z-index:-1;
+  overflow-x:clip;
+  position:absolute;
   pointer-events: none;
+  height:500px;
+  width: 100vw;
+  top:0;
+  left:0;
+  right:0;
+}
+
+.aurora {
+  height: 100%;
+  width: 100%;
   filter: blur(70px);
   animation: aurora 8s ease-in-out infinite;
   background:

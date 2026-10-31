@@ -40,7 +40,9 @@ const {
   <body class="bg-white text-darkest min-h-screen flex flex-col">
     <Header />
     <main class="relative flex-1">
-      <div class="aurora" aria-hidden="true"></div>
+      <div class="aurora-container">
+        <div class="aurora" aria-hidden="true"></div>
+      </div>
       <slot />
     </main>
     <Footer />
